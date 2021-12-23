@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title> Android Application Test Plan</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">  </script>
+      <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
+      <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
+      <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
+   </head>
+   <style>
+      body {
+      font - family: 'Ubuntu',
+      sans - serif;
+      }
+   </style>
+   <body>
+      <div class="container">
+         <h1> Android Application Test Plan</h1>
+         <p> Type something in the input field to search the table:  </p>
+         <input class="form-control" id="myInput" type="text" placeholder="Mobile OWASP Category, Checks, Tools used...">
+         <br>
+         <div class="table-responsive">
+         <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-dark">
+               <tr>
+                  <th> Mobile OWASP Category </th>
+                  <th> Checks </th>
+                  <th> Tools used </th>
+               </tr>
+            </thead>
+            <tbody id="myTable">
+               <tr>
+                  <td> M1: Improper Platform Usage </td>
+                  <td> &#10004; App components(Service / Content Provider / Broadcase reciever / Activity)exposed to other apps. </td>
+                  <td> ADB, Drozer, APK Analyser </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  No anti - debugging mechanism implemented </td>
+                  <td> Manifest viewer, AXML printer, Dexplorer </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  setAllowFileAccess()method is set to true(File access using webview is enabled) </td>
+                  <td> Dex2jar, Jdgui, APK tool, Jadx </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  JavaScript Execution Risks at WebViews </td>
+                  <td> Dex2jar, Jdgui, APK tool, Jadx </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  XSS(webview with Javascript enabled) </td>
+                  <td> Dex2jar, Jdgui, APK tool, Jadx </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  Application can be installed on older Android platform </td>
+                  <td> Manifest viewer, AXML printer, Dexplorer </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  Application is using components / libraries / APIs / Plugins / Code / Framework with known vulnerablity. </td>
+                  <td> Burpsuite, Jdgui </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  Information leakage via Clipboard </td>
+                  <td> ADB </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  Excessive Permissions </td>
+                  <td> Manifest viewer, AXML printer, Dexplorer </td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M1: Improper Platform Usage </td>
+                  <td>&#10004;  allowBackup is set to true </td>
+                  <td> Manifest viewer, AXML printer, Dexplorer </td>
+               </tr>
+               <tr>
+                  <td>	M2: Insecure Data Storage	</td>
+                  <td> &#10004;	Sensitive information in source code	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M2: Insecure Data Storage </td>
+                  <td>&#10004;	Content Providers Access Permissions	</td>
+                  <td>	Drozer	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M2: Insecure Data Storage </td>
+                  <td>&#10004;	Content Providers SQL Injection	</td>
+                  <td>	Drozer	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M2: Insecure Data Storage </td>
+                  <td>&#10004;	Sensitive information in cleartext stored in localstorage: SQLite, shared preference, internal storage, external storage,data directory or data is exposed via content provider	</td>
+                  <td>	Root explorer,Drozer	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M2: Insecure Data Storage </td>
+                  <td>&#10004;	Sensitive information in cleartext in volatile memory	</td>
+                  <td>	Android studio	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M3: Insecure Communication	</td>
+                  <td> &#10004;	Bypassing Certificate Pinning	</td>
+                  <td>	SSL Unpinning, Just trust me, trust killer, API hooking(Andbug, JDB)	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M3: Insecure Communication </td>
+                  <td>&#10004;	SSL/TLS Known Issues – CRIME, BREACH, BEAST, Lucky13, RC4, etc…	</td>
+                  <td>	Test SSL server, SSL labs	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M3: Insecure Communication </td>
+                  <td>&#10004;	Disable certificate validation	</td>
+                  <td>	Apktool	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M3: Insecure Communication </td>
+                  <td>&#10004;	HTTPS is not implemented	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M3: Insecure Communication </td>
+                  <td>&#10004;	SSL Pinning not implemented	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M3: Insecure Communication </td>
+                  <td>&#10004;	Sensitive details transmitted in URL	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M3: Insecure Communication </td>
+                  <td>&#10004;	Deprecated SSL/TLS Version is Supported	</td>
+                  <td>	Test SSL server, SSL labs	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M3: Insecure Communication </td>
+                  <td>&#10004;	Weak SSL ciphers supported	</td>
+                  <td>	Test SSL server, SSL labs	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M4: Insecure Authentication	</td>
+                  <td> &#10004;	Application accepts blank password	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Application accepts Partial password	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Check for offline authentication	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	No authentication on background app resume	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Local Authentication Bypass	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Weak MPIN policy	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	No Anti-automation mechanism implemented (Token/lockout/CAPTCHA)	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	2 Factor authentication is not implemented on critical functionality	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Password replay attack	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Back n back attack	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	No lockout policy implemented on failed number of logins	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	No lockout set on old password in change password functionality	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	No password policy set	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	MPIN not verified at server end	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	No lockout on Mpin	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Hint question bruteforced on forgot password	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Hint question/answer transmitted in cleartext	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Old password accepted even after forget password	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Credentails transmitted in cleartext	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Sensitive info like card details/Mpin/PAN numbers sent in cleartext.	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Insecure password reset mechanism	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Bypassing login via  XML injection	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Are the session cookie attributes set	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Insecure Forgot password impelemented	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Insecure Reset password impelemented	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Second factor authentication / OTP can be bypassed	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Second factor authentication / OTP can be bruteforced	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M4: Insecure Authentication </td>
+                  <td>&#10004;	Logout functionality not implemented	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M5: Insufficient Cryptography	</td>
+                  <td> &#10004;	Hardcoded encryption key	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M5: Insufficient Cryptography </td>
+                  <td>&#10004;	Cryptographic Based Storage Strength	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M5: Insufficient Cryptography </td>
+                  <td>&#10004;	Weak key generation logic	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M6: Insecure Authorization	</td>
+                  <td> &#10004;	Missing binding between the device ID and Auth Token	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy, IMEI changer, Hijack suite, Mac Id changer	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M6: Insecure Authorization </td>
+                  <td>&#10004;	An adversary can hijack user sessions by session fixation.	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M6: Insecure Authorization </td>
+                  <td>&#10004;	Parameter manipulation	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M6: Insecure Authorization </td>
+                  <td>&#10004;	Privilege escalation via parameter manipulation	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M6: Insecure Authorization </td>
+                  <td>&#10004;	Privilege escalation via URL manipulation	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M6: Insecure Authorization </td>
+                  <td>&#10004;	Maker-Checker functionality bypass via parameter manipulation	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M6: Insecure Authorization </td>
+                  <td>&#10004;	Sensitive information sent to third party websites	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M7: Client Code Quality	</td>
+                  <td> &#10004;	Client side SQL Injection	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	Client side Input validation not implemented	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	Autocomplete should be OFF for sensitive information	</td>
+                  <td>	Browser	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	Is the mobile application accessible over web browser	</td>
+                  <td>	Browser	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	Application runs on rooted phones	</td>
+                  <td>	Hide My Root, Root Cloak,	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	printStackTrace is used	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	Developer comments revealed in source code	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	Bypassing login via SQL injection	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	Bypassing login via  LDAP/XPATH injection	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M7: Client Code Quality </td>
+                  <td>&#10004;	File Manipulation / Malicious file upload	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M8: Code Tampering	</td>
+                  <td> &#10004;	Does application has tamper detection mechanism	</td>
+                  <td>	APK tool, Jarsigner, Key tool.	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M8: Code Tampering </td>
+                  <td>&#10004;	Is tamper detection Bypassable?	</td>
+                  <td>	APK tool, Jarsigner, Key tool,Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M8: Code Tampering </td>
+                  <td>&#10004; Is tamper detection check client side?	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M9: Reverse Engineering	</td>
+                  <td> &#10004;	No source code obfuscation implemented / Partial source code obfuscation implemented	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M9: Reverse Engineering </td>
+                  <td>&#10004;	Sensitive info/Business logic exposed/	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	M10: Extraneous Functionality	</td>
+                  <td> &#10004;	Check for hidden backdoor/Gap left by the developer	</td>
+                  <td>	Dex2jar, Jdgui, APK tool, Jadx	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> M10: Extraneous Functionality </td>
+                  <td>&#10004;	Check for hidden APIs developer forgot to remove or left purposly.	</td>
+                  <td>	APK tool, Jarsigner, Key tool,Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+               <tr>
+                  <td>	Misc.	</td>
+                  <td> &#10004;	Last login time and recent transactions not shown after login	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Multiple logins enabled	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	UAT contains live production data	</td>
+                  <td>	APK tool, Jarsigner, Key tool,Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Missing useful HTTP headers	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	HTTP dangerous methods enabled	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Does the application forcefully log the user out for attacks	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Registration/Onboarding checks	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Response modification attack	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Device level check bypass	</td>
+                  <td>	Hijack Suite, Root explorer, Imei Changer, Mac ID changer.	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	CSRF	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	UI Spoofing / Tapjacking	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Business Logic flaws / Does the application accept negative value	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Sensitive web service URL exposed in request/response	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Session management	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Session hijacking	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Session id doesnot change after login and post logout	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	No session timeout / longer session timeout duration	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Unvalidated redirects	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Remote file inclusion flaw	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Local file Inclusion flaw	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Keyboard caching is not disabled	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Internal ip address/ path disclosed in responses	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Sensitive data in recent apps	</td>
+                  <td>		</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	An adversary can harvest email addresses for spamming	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	An adversary can view restricted files by directory listing	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Server banner in HTTP headers	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Enumerate valid usernames on login page	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Default web page is accessible	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Application level logging is not disbaled	</td>
+                  <td>	Log Cat.	</td>
+               </tr>
+               <tr>
+                  <td style="color:white;"> Misc. </td>
+                  <td>&#10004;	Error page reveals sensitive information	</td>
+                  <td>	Burpsuite, Fiddler, Zap proxy	</td>
+               </tr>
+               <tr>
+            </tbody>
+         </table>
+            </div>
+         <p> Note that we start the search in tbody, to prevent filtering the table headers. </p>
+      </div>
+      <div class="container">
+         <center>
+            <span class="align-middle"> Made with  <span style="color:#e25555;">  &#9829;
+            </span> in India | © 2021 RaKKeN. </span>
+         </center>
+      </div>
+      <script>
+         $(document).ready(function () {
+         $("#myInput").on("keyup", function () {
+         var value = $(this).val().toLowerCase();
+         $("#myTable tr").filter(function () {
+         $(this).toggle($(this).text().toLowerCase().indexOf(value)> -1)
+         });
+         });
+         });
+      </script>
+   </body>
+</html>
+
