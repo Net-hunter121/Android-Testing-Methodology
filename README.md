@@ -1,2 +1,2 @@
 # Android-Testing-Methodlogy
-AAA
+Navigate to https://net-hunter121.github.io/Android-Testing-Methodology/
