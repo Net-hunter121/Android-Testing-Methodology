@@ -1,25 +1,32 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title> Android Application Testing Methodology</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">  </script>
-      <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
-      <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
-      <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
-   </head>
-   <style>
-      body {
-      font - family: 'Ubuntu',
-      sans - serif;
-      }
-   </style>
-   <body>
+<head>
+    <title>Android Application Testing Methodology</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
+    <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
+    <style>
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            transition: background-color 0.5s;
+        }
+        .container {
+            background-color: #ffffff; /* Light mode background color */
+            color: #000000; /* Light mode text color */
+        }
+        .night-mode .container {
+            background-color: #000000; /* Dark mode background color */
+            color: #ffffff; /* Dark mode text color */
+        }
+    </style>
+</head>
+<body>
+
       <div class="container">
          <h1> Android Application Testing Methodology</h1>
          <p> Type something in the input field to search the table:  </p>
@@ -607,6 +614,28 @@
          });
          });
       </script>
+      <!-- Night mode toggle button -->
+<button id="toggleNightMode" class="btn btn-primary mt-3 ml-3">Toggle Night Mode</button>
+
+<script>
+    // JavaScript to toggle night mode
+    $(document).ready(function () {
+        // Check user preference from local storage or other source
+        var nightMode = localStorage.getItem('nightMode');
+
+        // Apply night mode if user preference is dark
+        if (nightMode === 'dark') {
+            $('body').addClass('night-mode');
+        }
+
+        // Toggle night mode on button click or any user action
+        $('#toggleNightMode').click(function () {
+            $('body').toggleClass('night-mode');
+            // Update user preference in local storage
+            nightMode = $('body').hasClass('night-mode') ? 'dark' : 'light';
+            localStorage.setItem('nightMode', nightMode);
+        });
+    });
+</script>
    </body>
 </html>
-
