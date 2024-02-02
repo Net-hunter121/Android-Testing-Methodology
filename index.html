@@ -20,20 +20,66 @@
             color: #000000; /* Light mode text color */
         }
         .night-mode .container {
-            background-color: #000000; /* Dark mode background color */
+            background-color: #1a1a1a; /* Dark mode background color */
             color: #ffffff; /* Dark mode text color */
+        }
+        .full-screen {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .full-screen .container {
+            flex-grow: 1;
+        }
+        .navbar {
+            display: none;
+        }
+        .navbar-toggler {
+            display: none;
         }
     </style>
 </head>
 <body>
-         <!-- Night mode toggle button -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Night mode toggle button -->
 <button id="toggleNightMode" class="btn btn-primary mt-3 ml-3">Toggle Night Mode</button>
+<!-- Full-screen toggle button -->
+<button id="toggleFullScreen" class="btn btn-secondary mt-3 ml-3">Toggle Full Screen</button>
 
 <script>
-    // JavaScript to toggle night mode
+    // JavaScript to toggle night mode and full-screen mode
     $(document).ready(function () {
         // Check user preference from local storage or other source
         var nightMode = localStorage.getItem('nightMode');
+        var fullScreen = false;
 
         // Apply night mode if user preference is dark
         if (nightMode === 'dark') {
@@ -46,6 +92,14 @@
             // Update user preference in local storage
             nightMode = $('body').hasClass('night-mode') ? 'dark' : 'light';
             localStorage.setItem('nightMode', nightMode);
+        });
+
+        // Toggle full-screen mode on button click
+        $('#toggleFullScreen').click(function () {
+            fullScreen = !fullScreen;
+            $('body').toggleClass('full-screen', fullScreen);
+            // Toggle navigation bar visibility
+            $('.navbar').toggle(!fullScreen);
         });
     });
 </script>
