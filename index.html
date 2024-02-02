@@ -26,6 +26,29 @@
     </style>
 </head>
 <body>
+         <!-- Night mode toggle button -->
+<button id="toggleNightMode" class="btn btn-primary mt-3 ml-3">Toggle Night Mode</button>
+
+<script>
+    // JavaScript to toggle night mode
+    $(document).ready(function () {
+        // Check user preference from local storage or other source
+        var nightMode = localStorage.getItem('nightMode');
+
+        // Apply night mode if user preference is dark
+        if (nightMode === 'dark') {
+            $('body').addClass('night-mode');
+        }
+
+        // Toggle night mode on button click or any user action
+        $('#toggleNightMode').click(function () {
+            $('body').toggleClass('night-mode');
+            // Update user preference in local storage
+            nightMode = $('body').hasClass('night-mode') ? 'dark' : 'light';
+            localStorage.setItem('nightMode', nightMode);
+        });
+    });
+</script>
 
       <div class="container">
          <h1> Android Application Testing Methodology</h1>
@@ -614,28 +637,5 @@
          });
          });
       </script>
-      <!-- Night mode toggle button -->
-<button id="toggleNightMode" class="btn btn-primary mt-3 ml-3">Toggle Night Mode</button>
-
-<script>
-    // JavaScript to toggle night mode
-    $(document).ready(function () {
-        // Check user preference from local storage or other source
-        var nightMode = localStorage.getItem('nightMode');
-
-        // Apply night mode if user preference is dark
-        if (nightMode === 'dark') {
-            $('body').addClass('night-mode');
-        }
-
-        // Toggle night mode on button click or any user action
-        $('#toggleNightMode').click(function () {
-            $('body').toggleClass('night-mode');
-            // Update user preference in local storage
-            nightMode = $('body').hasClass('night-mode') ? 'dark' : 'light';
-            localStorage.setItem('nightMode', nightMode);
-        });
-    });
-</script>
    </body>
 </html>
